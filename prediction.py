@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 from joblib import load
 
-model_young = joblib.load("artifacts\model_young.joblib")
-model_rest = joblib.load("artifacts\model_rest.joblib")
-scaler_young = joblib.load("artifacts\scaler_young.joblib")
-scaler_rest = joblib.load("artifacts\scaler_rest.joblib")
+model_young = joblib.load("artifacts/model_young.joblib")
+model_rest = joblib.load("artifacts/model_rest.joblib")
+scaler_young = joblib.load("artifacts/scaler_young.joblib")
+scaler_rest = joblib.load("artifacts/scaler_rest.joblib")
 
 def calculate_normalized_risk(medical_history):
     risk_scores = {
@@ -115,5 +115,6 @@ def predict(input_dict):
         prediction = model_young.predict(input_df)
     else:
         prediction = model_rest.predict(input_df)
+
 
     return int(prediction[0])
